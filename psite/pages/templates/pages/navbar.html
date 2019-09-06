@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'pages/navbar.css' %}" />
+<nav>
+    <ul id="menu">
+        <li><a href="#">Home</a></li>
+        <li>
+            <a href="#">Writings</a>
+            <ul class="hidden">
+                <li><a href="#">Python</a></li>
+                <li><a href="#">bash</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Projects</a>
+            <ul class="hidden">
+                <li><a href="#">Photography</a></li>
+                <li><a href="#">Web & User Interface Design</a></li>
+                <li><a href="#">Illustration</a></li>
+            </ul>
+        </li>
+        <li><a href="#">News</a></li>
+    </ul>
+</nav>
