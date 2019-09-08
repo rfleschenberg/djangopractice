@@ -3,10 +3,15 @@
 {% block content %}
 <h1>{{ object.title }}</h1>
 <p>by {{ object.author }} on {{ object.date }}</p>
-<p class='content'>{{ object.content }}</p>
+<div class='content'>{{ object.content|linebreaks }}</p>
+
+<h1>Comment Section</h1>
 
 {% for comment in comments %}
-<p>{{ comment.author }}: {{ comment.content }}</p>
+<div class='comment'>
+    <p class='comment-author'>{{ comment.author }}:</p>
+    <p class='comment-content'>{{ comment.content }}</p>
+</div>
 {% endfor %}
 
 <form action='.' method='POST'> {% csrf_token %}

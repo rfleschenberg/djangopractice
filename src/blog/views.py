@@ -23,10 +23,14 @@ class ArticleDetailView(DetailView):
 def article_detail_view(request, id):
     obj = get_object_or_404(Article, id=id)
     comments = Comment.objects.filter(post_id=id)
-    comment_form = CommentModelForm(request.POST or None)
-    if comment_form.is_valid():
-        comment_form.post_id = id
-        comment_form.save()
+    if request.method == 'POST':
+        comment_form = CommentModelForm(request.POST or None)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.post_id = obj 
+            comment.save()
+            comment_form = CommentModelForm()
+    else:
         comment_form = CommentModelForm()
     context = {
         'object': obj,

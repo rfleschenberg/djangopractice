@@ -15,4 +15,4 @@ class Comment(models.Model):
     author = models.CharField(max_length=50)
     content = models.TextField()
     date = models.DateField(auto_now=True)
-    post_id = models.IntegerField(default=2)
+    post_id = models.ForeignKey(Article, on_delete=models.CASCADE)
