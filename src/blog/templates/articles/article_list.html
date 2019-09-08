@@ -1,0 +1,11 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+
+{% for instance in object_list %}
+    <p class="article"><a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></p>
+    <p>{{ instance.date }} by {{ instance.author }}</p>
+    <p class="article-content">{{ instance.content|slice:":300" }}</p>
+{% endfor %}
+
+{% endblock %}

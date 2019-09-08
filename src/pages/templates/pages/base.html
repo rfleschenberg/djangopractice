@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>adder's corner</title>
+    <link rel="stylesheet" href="{% static 'pages/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'pages/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'blog/list.css' %}" />
+    <link rel="stylesheet" href="{% static 'blog/detail.css' %}" />
+</head>
+<body>
+    {% include 'pages/navbar.html' %}
+    
+    {% block content %}
+    replace me
+    {% endblock %}
+</body>
+</html>

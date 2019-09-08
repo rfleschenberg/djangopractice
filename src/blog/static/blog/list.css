@@ -1,0 +1,8 @@
+.article {
+    font-family: 'Georgia';
+    font-size: 30px;
+}
+
+.article-content {
+    max-width: 500px;
+}
