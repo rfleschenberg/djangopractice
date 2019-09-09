@@ -16,3 +16,7 @@ class Comment(models.Model):
     content = models.TextField()
     date = models.DateField(auto_now=True)
     post_id = models.ForeignKey(Article, on_delete=models.CASCADE)
+    comment_id = models.IntegerField()
+
+    def __str__(self):
+        return f'Comment {self.comment_id} on post {self.post_id.title}'

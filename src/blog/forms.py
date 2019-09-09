@@ -6,8 +6,8 @@ class CommentModelForm(forms.ModelForm):
         label='',
         widget=forms.Textarea(
             attrs={
-                'rows': 20,
-                'cols': 135
+                'rows': 7,
+                'cols': 50
             }
         )
     )

@@ -1,22 +1,23 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
-<h1>{{ object.title }}</h1>
-<p>by {{ object.author }} on {{ object.date }}</p>
+<h1 class='article-title'>{{ object.title }}</h1>
+<p class='article-info'>by {{ object.author }} on {{ object.date }}</p>
 <div class='content'>{{ object.content|linebreaks }}</p>
 
-<h1>Comment Section</h1>
-
-{% for comment in comments %}
-<div class='comment'>
-    <p class='comment-author'>{{ comment.author }}:</p>
-    <p class='comment-content'>{{ comment.content }}</p>
+<div class='comment-section'>
+    <h1>Comment Section</h1>
+    {% for comment in comments %}
+    <div class='comment'>
+        <p class='comment-author'>#{{ comment.comment_id }} {{ comment.author }}:</p>
+        <p class='comment-content'>{{ comment.content }}</p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
-<form action='.' method='POST'> {% csrf_token %}
+<form id='comment-form' action='.' method='POST'> {% csrf_token %}
     {{ comment_form.as_p }}
-    <input type='submit' value='Post'>    
+    <input id='post-button' type='submit' value='Post'>    
 </form>
 
 {% endblock %}

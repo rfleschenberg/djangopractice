@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import (
     DetailView,
     ListView
@@ -27,9 +27,11 @@ def article_detail_view(request, id):
         comment_form = CommentModelForm(request.POST or None)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
-            comment.post_id = obj 
+            comment.post_id = obj
+            comment.comment_id = len(comments) + 1
             comment.save()
             comment_form = CommentModelForm()
+            return redirect('.')
     else:
         comment_form = CommentModelForm()
     context = {

@@ -1,11 +1,13 @@
 {% extends 'pages/base.html' %}
-
+{% load static %}
 {% block content %}
 
 {% for instance in object_list %}
-    <p class="article"><a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></p>
-    <p>{{ instance.date }} by {{ instance.author }}</p>
-    <p class="article-content">{{ instance.content|slice:":300" }}</p>
+    <div class='article'>
+        <p class='article-title'><a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></p>
+        <p class='article-info'><img src="{% static 'blog/calendar.png' %}" alt="time" width='16' height='16'>&nbsp{{ instance.date }} by {{ instance.author }}</p>
+        <p class="article-content">{{ instance.content|slice:":300" }}</p>
+    </div>
 {% endfor %}
 
 {% endblock %}

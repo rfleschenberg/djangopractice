@@ -1,5 +1,18 @@
 .content {
     font-family: "Georgia";
+    margin: auto;
+    max-width: 560px;
+}
+
+.article-title {
+    margin: auto;
+    max-width: 560px;
+    margin-top: 75px;
+}
+
+.article-info {
+    margin: auto;
+    max-width: 560px;
 }
 
 .comment-author {
@@ -13,6 +26,28 @@
 
 .comment {
     border: 1px solid;
+    border-color: gray;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+#post-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.comment-section {
+    margin: auto;
+    max-width: 500px;
+}
+
+#comment-form {
+    margin: auto;
+    max-width: 500px;
 }
